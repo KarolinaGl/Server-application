@@ -3,6 +3,7 @@ from flask_restful import Api
 
 from database_access import DatabaseAccess
 from database_connection import DatabaseConnection
+from resources.fertilizing_dates import FertilizingDates
 from resources.users import Users
 from resources.watering_dates import WateringDates
 
@@ -16,5 +17,6 @@ if __name__ == '__main__':
 
     api.add_resource(Users, '/users')
     api.add_resource(WateringDates, '/watering_dates')
+    api.add_resource(FertilizingDates, '/fertilizing_dates')
 
     app.run(debug=True)
