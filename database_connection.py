@@ -33,6 +33,9 @@ class DatabaseConnection:
         select_query = f"SELECT * FROM {table_name} WHERE {' AND '.join(parsed_keys)}"
         return list(self._cursor.execute(select_query, values))
 
+    def execute_select_query(self, select_query):
+        return list(self._cursor.execute(select_query))
+
     def insert(self, table_name, parameters):
         keys = list(parameters.keys())
         values = list(parameters.values())
@@ -76,8 +79,8 @@ class DatabaseConnection:
         self._cursor.execute(delete_query, conditions_values)
         self._connection.commit()
 
-    def callFunction(self, function_name, function_return_type, function_arguments):
-        print(self._cursor.callfunc(function_name, function_return_type, function_arguments))
+    def call_function(self, function_name, function_return_type, function_arguments):
+        return self._cursor.callfunc(function_name, function_return_type, function_arguments)
 
 
 if __name__ == '__main__':
@@ -86,6 +89,7 @@ if __name__ == '__main__':
     # database_connection.insert('Users', {'username': 'Adam', 'password': '123'})
     # database_connection.insert('Users', {'username': 'Magda', 'password': '321'})
     # database_connection.insert('Users', {'username': 'Marek', 'password': 'abc'})
+    # database_connection.insert('Users', {'username': 'Ala', 'password': '1234'})
 
     # database_connection.insert('Plants', {'user_ID': 1, 'name': 'Kaktus', 'species': 'Opuntia', 'watering_frequency': 20,
     #                                       'fertilizing_frequency': 120})
@@ -98,5 +102,4 @@ if __name__ == '__main__':
     # database_connection.insert('Watering_dates', {'plant_ID': 3, 'watering_date': datetime.datetime(2021, 2, 20)})
     # database_connection.insert('Watering_dates', {'plant_ID': 4, 'watering_date': datetime.datetime(2021, 5, 13)})
 
-    # print(database_connection.select_all('Plants'))
-    # database_connection.callFunction('get_next_watering_date', datetime.datetime, [5])
+    database_connection.update('Watering_dates', {'watering_date': datetime.datetime(2013, 4, 22)}, {'watering_date_ID': 7})
