@@ -9,7 +9,7 @@ def select_all_watering_dates_from_user(user_ID):
     query = f"""select Plants.plant_ID, Plants.name, Watering_dates.watering_date_ID, Watering_dates.watering_date
                 from Plants
                 inner join Watering_dates on Watering_dates.plant_ID=Plants.plant_ID
-                inner join Users on Users.user_ID=Plants.user_ID
+                inner join Users on Users.user_ID=Plants.owner_ID
                 where Users.user_ID={user_ID}"""
 
     query_result = database_connection.execute_select_query(query)
@@ -33,7 +33,7 @@ def select_all_fertilizing_dates_from_user(user_ID):
     query = f"""select Plants.plant_ID, Plants.name, Fertilizing_dates.fertilizing_date_ID, Fertilizing_dates.fertilizing_date
                 from Plants
                 inner join Fertilizing_dates on Fertilizing_dates.plant_ID=Plants.plant_ID
-                inner join Users on Users.user_ID=Plants.user_ID
+                inner join Users on Users.user_ID=Plants.owner_ID
                 where Users.user_ID={user_ID}"""
 
     query_result = database_connection.execute_select_query(query)
