@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 import cx_Oracle
 
@@ -91,11 +91,11 @@ if __name__ == '__main__':
     # database_connection.insert('Users', {'username': 'Marek', 'password': 'abc'})
     # database_connection.insert('Users', {'username': 'Ala', 'password': '1234'})
 
-    # database_connection.insert('Plants', {'user_ID': 1, 'name': 'Kaktus', 'species': 'Opuntia', 'watering_frequency': 20,
+    # database_connection.insert('Plants', {'owner_ID': 1, 'name': 'Kaktus', 'species': 'Opuntia', 'watering_frequency': 20,
     #                                       'fertilizing_frequency': 120})
-    # database_connection.insert('Plants', {'user_ID': 1, 'name': 'Grubosz', 'species': 'Crassula', 'watering_frequency': 14,
+    # database_connection.insert('Plants', {'owner_ID': 1, 'name': 'Grubosz', 'species': 'Crassula', 'watering_frequency': 14,
     #                                       'fertilizing_frequency': 80})
-    # database_connection.insert('Plants', {'user_ID': 1, 'name': 'Paprotka', 'species': 'Polypodiopsida', 'watering_frequency': 10,
+    # database_connection.insert('Plants', {'owner_ID': 1, 'name': 'Paprotka', 'species': 'Polypodiopsida', 'watering_frequency': 10,
     #                                       'fertilizing_frequency': 60})
 
     # database_connection.insert('Watering_dates', {'plant_ID': 2, 'watering_date': datetime.datetime(2021, 4, 22)})
